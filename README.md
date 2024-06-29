@@ -3,7 +3,7 @@
 ### accesss ga via data api
 
 ```bash
-node index.js
+node ga-report.js
 ```
 
 ### access google spread sheet via google service account
