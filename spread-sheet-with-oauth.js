@@ -9,6 +9,9 @@ dotenv.config();
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'google_client_secret.json');
+const SPREADSHEET_ID = process.env.SPREADSHEET_ID; // ここにスプレッドシートIDを入力
+// 読み取りたい範囲
+const RANGE = 'シート1!A1:D10'; // ここに読み取りたい範囲を入力
 
 /**
  * Reads previously authorized credentials from the save file.
@@ -71,8 +74,10 @@ async function authorize() {
 async function listMajors(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-    range: 'Class Data!A2:E',
+    // spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    // range: 'Class Data!A2:E',
+    spreadsheetId: SPREADSHEET_ID,
+    range: RANGE,
   });
   const rows = res.data.values;
   if (!rows || rows.length === 0) {
