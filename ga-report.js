@@ -25,7 +25,8 @@ async function runReport() {
     ],
     dimensions: [
       {
-        name: 'unifiedPagePathScreen',
+        // name: 'unifiedPagePathScreen',
+        name: 'city',
       },
       // {
       //   name: 'defaultChannelGroup',
@@ -33,7 +34,8 @@ async function runReport() {
     ],
     metrics: [
       {
-          "name": "screenPageViews"
+          // "name": "screenPageViews"
+          "name": "activeUsers"
       },
       //{
       //    "name": "sessions"
